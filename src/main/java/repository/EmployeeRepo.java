@@ -79,7 +79,7 @@ public class EmployeeRepo {
                 try (ResultSet rs = pst.executeQuery()) {
                     if(rs.next()) {
                         user = new Employee();
-                        user.setEmployeeCode(rs.getInt("id"));
+                        user.setEmployeeCode(rs.getInt("employee_code"));
                         user.setEmail(rs.getString("email"));
                         user.setPassword(rs.getString("password"));
                     }

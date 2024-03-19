@@ -4,7 +4,7 @@
     Author     : imantha_o
 --%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +19,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
-
+        <%@ include file="navbar.jsp" %> <!-- Including navbar.jsp -->
         <div class="container">
             <h2>Employee Management</h2>
             <!-- Search Form -->

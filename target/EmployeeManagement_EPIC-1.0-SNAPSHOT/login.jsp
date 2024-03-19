@@ -99,18 +99,18 @@
                                             <h4 class="mt-3 mb-5 epic-title-style-1">Welcome to EPIC!</h4>
                                         </div>
 
-                                        <form style="width: 23rem;" class="needs-validation" novalidate>
+                                        <form action="EmployeeLoginServlet" method="post" style="width: 23rem;" class="needs-validation" novalidate>
 
                                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
                                             <div class="form-outline mb-4">
-                                                <input type="email" id="form2Example18" class="form-control form-control-lg" required/>
+                                                <input type="email" id="form2Example18" name="email" class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="form2Example18">Email address</label>
                                                 <div class="invalid-feedback">Please enter a valid email address.</div>
                                             </div>
 
                                             <div class="form-outline mb-4">
-                                                <input type="password" id="form2Example28" class="form-control form-control-lg" required/>
+                                                <input type="password" id="form2Example28" name="password" class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="form2Example28">Password</label>
                                                 <div class="invalid-feedback">Please enter your password.</div>
                                             </div>
@@ -120,7 +120,7 @@
                                             </div>
 
                                             <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
-                                            <p>Don't have an account? <a href="dashboard.jsp" class="link-info">Register here</a></p>
+<!--                                            <p>Don't have an account? <a href="dashboard.jsp" class="link-info">Register here</a></p>-->
                                             <p>Don't have an account? <a href="register.jsp" class="link-info">Register here</a></p>
 
                                         </form>
