@@ -12,6 +12,10 @@
         <servlet-name>EmployeeRegisterServlet</servlet-name>
         <servlet-class>servlets.EmployeeRegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmployeeLogoutServlet</servlet-name>
+        <servlet-class>servlets.EmployeeLogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmployeLoginServlet</servlet-name>
         <url-pattern>/EmployeLoginServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>EmployeeRegisterServlet</servlet-name>
         <url-pattern>/EmployeeRegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeLogoutServlet</servlet-name>
+        <url-pattern>/EmployeeLogoutServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

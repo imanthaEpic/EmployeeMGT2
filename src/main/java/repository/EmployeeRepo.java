@@ -82,6 +82,17 @@ public class EmployeeRepo {
                         user.setEmployeeCode(rs.getInt("employee_code"));
                         user.setEmail(rs.getString("email"));
                         user.setPassword(rs.getString("password"));
+                        
+                        user.setFirstName(rs.getString("first_name"));
+                        user.setLastName(rs.getString("last_name"));
+                        user.setAddress(rs.getString("address"));
+                        user.setNic(rs.getString("nic"));
+                        user.setMobileNo(rs.getString("mobile_no"));
+                        user.setGender(rs.getString("gender"));
+                        user.setDesignation(rs.getString("designation"));
+                        user.setProfileImage(rs.getString("profile_image"));
+                        user.setStatus(rs.getString("status"));
+                        user.setDob(rs.getDate("dob"));
                     }
                 }
             }

@@ -79,6 +79,13 @@
                 box-shadow: #3c4fe0 0 3px 7px inset;
                 transform: translateY(2px);
             }
+            .newAccount{
+                margin-left: 10px;
+            }
+            .newAccount:hover {
+                background: #dc3545;
+                border: #dc3545;
+            }
         </style>
 
     </head>
@@ -120,8 +127,12 @@
                                             </div>
 
                                             <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
-<!--                                            <p>Don't have an account? <a href="dashboard.jsp" class="link-info">Register here</a></p>-->
-                                            <p>Don't have an account? <a href="register.jsp" class="link-info">Register here</a></p>
+                                            <!--                                            <p>Don't have an account? <a href="dashboard.jsp" class="link-info">Register here</a></p>-->
+                                            <div class="text-center d-flex align-items-center justify-content-center h-100">
+                                                <span class="mr-2">New around here?</span>
+                                                <a href="register.jsp" class="btn btn-primary newAccount">Create an Account</a>
+                                            </div>
+
 
                                         </form>
 

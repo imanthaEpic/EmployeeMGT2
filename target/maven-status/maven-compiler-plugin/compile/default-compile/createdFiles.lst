@@ -1,4 +1,5 @@
 com\mycompany\employeemanagement_epic\JakartaRestConfiguration.class
+servlets\EmployeeLogoutServlet.class
 servlets\EmployeeLoginServlet.class
 utill\DBConnection.class
 bean\Employee.class
