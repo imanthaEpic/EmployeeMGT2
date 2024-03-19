@@ -120,7 +120,7 @@
                                             </div>
 
                                             <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
-<!--                                            <p>Don't have an account? <a href="registration.jsp" class="link-info">Register here</a></p>-->
+                                            <p>Don't have an account? <a href="dashboard.jsp" class="link-info">Register here</a></p>
                                             <p>Don't have an account? <a href="register.jsp" class="link-info">Register here</a></p>
 
                                         </form>
