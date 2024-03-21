@@ -21,7 +21,7 @@ public class Employee {
     private String gender;
     private String email;
     private String designation;
-    private String profileImage;
+    private byte[] profileImage;
     private Date dob;
     private String status;
     private String password;
@@ -31,7 +31,7 @@ public class Employee {
     }
 
     public Employee(String firstName, String lastName, String address, String nic, String mobileNo, String gender,
-            String email, String designation, String profileImage, Date dob, String status, String password) {
+            String email, String designation, byte[] profileImage, Date dob, String status, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -119,11 +119,11 @@ public class Employee {
         this.designation = designation;
     }
 
-    public String getProfileImage() {
+    public byte[] getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(String profileImage) {
+    public void setProfileImage(byte[] profileImage) {
         this.profileImage = profileImage;
     }
 

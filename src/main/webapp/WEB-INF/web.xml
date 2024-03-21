@@ -16,6 +16,14 @@
         <servlet-name>EmployeeLogoutServlet</servlet-name>
         <servlet-class>servlets.EmployeeLogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmployeeUpdateServlet</servlet-name>
+        <servlet-class>servlets.EmployeeUpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmployeeDeleteServlet</servlet-name>
+        <servlet-class>servlets.EmployeeDeleteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmployeLoginServlet</servlet-name>
         <url-pattern>/EmployeLoginServlet</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>EmployeeLogoutServlet</servlet-name>
         <url-pattern>/EmployeeLogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeUpdateServlet</servlet-name>
+        <url-pattern>/EmployeeUpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeDeleteServlet</servlet-name>
+        <url-pattern>/EmployeeDeleteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

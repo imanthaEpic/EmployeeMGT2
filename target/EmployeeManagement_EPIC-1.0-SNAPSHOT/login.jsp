@@ -84,7 +84,7 @@
             }
             .newAccount:hover {
                 background: #dc3545;
-                border: #dc3545;
+                border-color: #dc3545;
             }
         </style>
 

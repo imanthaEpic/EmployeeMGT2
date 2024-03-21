@@ -47,7 +47,7 @@ public class EmployeeRepo {
                 pt.setString(6, emp.getGender());
                 pt.setString(7, emp.getEmail());
                 pt.setString(8, emp.getDesignation());
-                pt.setString(9, emp.getProfileImage());
+                pt.setBytes(9, emp.getProfileImage());
                 pt.setDate(10, new java.sql.Date(emp.getDob().getTime()));
                 pt.setString(11, emp.getStatus());
                 pt.setString(12, emp.getPassword());
@@ -90,7 +90,7 @@ public class EmployeeRepo {
                         user.setMobileNo(rs.getString("mobile_no"));
                         user.setGender(rs.getString("gender"));
                         user.setDesignation(rs.getString("designation"));
-                        user.setProfileImage(rs.getString("profile_image"));
+                        user.setProfileImage(rs.getBytes("profile_image"));
                         user.setStatus(rs.getString("status"));
                         user.setDob(rs.getDate("dob"));
                     }
@@ -106,7 +106,7 @@ public class EmployeeRepo {
     public boolean verifyPassword(int userId, String password) throws SQLException {
         // Implement logic to verify password against the database
         // Here's an example (replace with your actual implementation):
-        String query = "SELECT * FROM employees WHERE id=? and password=?";
+        String query = "SELECT * FROM employees WHERE employee_code=? and password=?";
         try (PreparedStatement pst = this.con.prepareStatement(query)) {
           pst.setInt(1, userId);
           pst.setString(2, password);
@@ -134,7 +134,7 @@ public class EmployeeRepo {
                 pt.setString(6, empU.getGender());
                 pt.setString(7, empU.getEmail());
                 pt.setString(8, empU.getDesignation());
-                pt.setString(9, empU.getProfileImage());
+                pt.setBytes(9, empU.getProfileImage());
                 pt.setDate(10, new java.sql.Date(empU.getDob().getTime()));
                 pt.setString(11, empU.getStatus());
                 pt.setString(12, empU.getPassword());
@@ -158,7 +158,7 @@ public class EmployeeRepo {
 
         try {
             // Delete user data
-            String query = "DELETE FROM employees WHERE id=?";
+            String query = "DELETE FROM employees WHERE employee_code=?";
 
             // Using try-with-resources to automatically close PreparedStatement
             try (PreparedStatement pt = this.con.prepareStatement(query)) {

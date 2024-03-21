@@ -1,9 +1,11 @@
 com\mycompany\employeemanagement_epic\JakartaRestConfiguration.class
+servlets\EmployeeDeleteServlet.class
 servlets\EmployeeLogoutServlet.class
+servlets\EmployeeUpdateServlet.class
 servlets\EmployeeLoginServlet.class
 utill\DBConnection.class
+servlets\EmployeeRegisterServlet.class
+repository\EmployeeRepo.class
 bean\Employee.class
 service\EmployeeService.class
-servlets\EmployeeRegisterServlet.class
 com\mycompany\employeemanagement_epic\resources\JakartaEE10Resource.class
-repository\EmployeeRepo.class

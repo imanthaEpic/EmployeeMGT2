@@ -7,10 +7,13 @@ package servlets;
 import bean.Employee;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -21,11 +24,13 @@ import java.util.logging.Logger;
 import repository.EmployeeRepo;
 import utill.DBConnection;
 
+
 /**
  *
  * @author imantha_o
  */
 @WebServlet(name = "EmployeeRegisterServlet", urlPatterns = {"/EmployeeRegisterServlet"})
+@MultipartConfig // Annotation to enable multi-part configuration
 public class EmployeeRegisterServlet extends HttpServlet {
 
     @Override
@@ -52,15 +57,17 @@ public class EmployeeRegisterServlet extends HttpServlet {
         String gender = null;
 
         if ("option1".equals(genderValue)) {
-            gender = "Male";
-        } else if ("option2".equals(genderValue)) {
             gender = "Female";
+        } else if ("option2".equals(genderValue)) {
+            gender = "Male";
         } else {
             // Handle invalid gender value here
         }
         String email = request.getParameter("email");
         String designation = request.getParameter("designation");
-        String profileImage = request.getParameter("profileImage");
+        Part filePart = request.getPart("profileImage");
+        InputStream fileContent = filePart.getInputStream();
+        byte[] profileImage = fileContent.readAllBytes();
         String status = request.getParameter("status");
         String password = request.getParameter("password");
 

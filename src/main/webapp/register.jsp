@@ -92,7 +92,7 @@
                                 <div class="col-xl-6">
                                     <div class="card-body p-md-5 text-black">
                                         <h3 class="mb-5 text-uppercase">Employee registration form</h3>
-                                        <form action="EmployeeRegisterServlet" method="post" class="needs-validation" novalidate>
+                                        <form action="EmployeeRegisterServlet" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-md-6 mb-4">
                                                     <div class="form-outline">
@@ -148,24 +148,28 @@
                                             <div class="row">
                                                 <div class="col-md-6 mb-4">
                                                     <label for="designation" class="form-label">Designation: </label>
-                                                    <select class="select form-control form-control-lg" id="designation" name="designation" required>
-                                                        <option value="">Select</option>
-                                                        <option value="Intern">Intern</option>
-                                                        <option value="ASE">ASE</option>
-                                                        <option value="SE">SE</option>
-                                                        <option value="SSE">SSE</option>
-                                                        <option value="ATL">ATL</option>
-                                                        <option value="TL">TL</option>
-                                                    </select>
+                                                    <div class="input-group">
+                                                        <select class="form-select form-control form-control-lg" id="designation" name="designation" required>
+                                                            <option value="">Select</option>
+                                                            <option value="Intern">Intern</option>
+                                                            <option value="ASE">ASE</option>
+                                                            <option value="SE">SE</option>
+                                                            <option value="SSE">SSE</option>
+                                                            <option value="ATL">ATL</option>
+                                                            <option value="TL">TL</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="invalid-feedback invalid-designation" style="display: none;">Designation is required.</div>
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="status" class="form-label">Status: </label>
-                                                    <select class="select form-control form-control-lg" id="status" name="status" required>
-                                                        <option value="">Select</option>
-                                                        <option value="Active">Active</option>
-                                                        <option value="Inactive">Inactive</option>
-                                                    </select>
+                                                    <div class="input-group">
+                                                        <select class="select form-control form-control-lg" id="status" name="status" required>
+                                                            <option value="">Select</option>
+                                                            <option value="Active">Active</option>
+                                                            <option value="Inactive">Inactive</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="invalid-feedback invalid-status" style="display: none;">Status is required.</div>
                                                 </div>
                                             </div>
