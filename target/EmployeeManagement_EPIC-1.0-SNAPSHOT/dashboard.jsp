@@ -10,7 +10,7 @@
 <%@ page import="utill.DBConnection" %>
 <!DOCTYPE html>
 <html>
-    <head>gi
+    <head>
         <meta charset="UTF-8">
         <title>Active Employees Counts</title>
     </head>
