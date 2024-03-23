@@ -51,7 +51,7 @@ public class EmployeeLoginServlet extends HttpServlet {
             if(user!=null){
                 HttpSession session = request.getSession();
                 session.setAttribute("loguser", user);
-                response.sendRedirect("dashboard.jsp");
+                response.sendRedirect("empDetails.jsp");
             } else {
                 out.print("Employee not found!");
             }
