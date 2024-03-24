@@ -28,6 +28,10 @@
         <servlet-name>DashboardServlet</servlet-name>
         <servlet-class>servlets.DashboardServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EmployeeDataServlet</servlet-name>
+        <servlet-class>servlets.EmployeeDataServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmployeLoginServlet</servlet-name>
         <url-pattern>/EmployeLoginServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>DashboardServlet</servlet-name>
         <url-pattern>/DashboardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeDataServlet</servlet-name>
+        <url-pattern>/EmployeeDataServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

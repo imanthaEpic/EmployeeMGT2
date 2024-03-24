@@ -205,7 +205,7 @@
                                             <label for="oldPassword" class="form-label">Current Password</label>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="oldPassword" name="oldPassword">
+                                            <input type="password" class="form-control" id="oldPassword" name="oldPassword" required>
                                         </div>
                                     </div>
                                     <hr class="new1">

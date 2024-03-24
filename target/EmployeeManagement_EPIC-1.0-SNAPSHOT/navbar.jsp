@@ -65,9 +65,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="myprofile.jsp">My Profile</a>
                         </li>
-                        <li class="nav-item">
+<!--                        <li class="nav-item">
                             <a class="nav-link" href="empDetails.jsp">Employee Count</a>
-                        </li>
+                        </li>-->
                     </ul>
                     <!-- Left links -->
                 </div>
