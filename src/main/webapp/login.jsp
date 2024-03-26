@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -86,11 +87,11 @@
                 background: #dc3545;
                 border-color: #dc3545;
             }
+
         </style>
 
     </head>
     <body>
-
         <section class="h-100 gradient-form" style="background-color: #eee;">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -99,7 +100,6 @@
                             <div class="row g-0">
                                 <div class="col-lg-6">
                                     <div class="card-body p-md-5 mx-md-4">
-
                                         <div class="text-center">
                                             <img src="https://www.epictechnology.lk/wp-content/uploads/2019/03/epic-lanka-logo.png"
                                                  style="width: 185px;" alt="logo">
@@ -107,35 +107,27 @@
                                         </div>
 
                                         <form action="EmployeeLoginServlet" method="post" style="width: 23rem;" class="needs-validation" novalidate>
-
                                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
-
                                             <div class="form-outline mb-4">
                                                 <input type="email" id="form2Example18" name="email" class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="form2Example18">Email address</label>
                                                 <div class="invalid-feedback">Please enter a valid email address.</div>
                                             </div>
-
                                             <div class="form-outline mb-4">
                                                 <input type="password" id="form2Example28" name="password" class="form-control form-control-lg" required/>
                                                 <label class="form-label" for="form2Example28">Password</label>
                                                 <div class="invalid-feedback">Please enter your password.</div>
                                             </div>
-
+                                            <input type="hidden" name="formSubmitted" value="true"> <!-- Hidden input field to indicate form submission -->
                                             <div class="pt-1 mb-4">
                                                 <button class="button-29" type="submit">Login</button>
                                             </div>
-
                                             <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
-                                            <!--                                            <p>Don't have an account? <a href="dashboard.jsp" class="link-info">Register here</a></p>-->
                                             <div class="text-center d-flex align-items-center justify-content-center h-100">
                                                 <span class="mr-2">New around here?</span>
                                                 <a href="register.jsp" class="btn btn-primary newAccount">Create an Account</a>
                                             </div>
-
-
                                         </form>
-
                                     </div>
                                 </div>
                                 <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
@@ -150,22 +142,48 @@
                 </div>
             </div>
         </section>
-        <script>
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation');
 
-            // Loop over them and prevent submission
-            Array.prototype.slice.call(forms)
-                    .forEach(function (form) {
-                        form.addEventListener('submit', function (event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        }, false);
-                    });
+        <!-- Alert box for login error -->
+        <c:if test="${not empty requestScope.loginError}">
+            <div class="alert alert-danger error-message" role="alert" style="display: block; position: fixed; top: 10px; right: 10px; z-index: 9999;">
+                <strong>Error:</strong> ${requestScope.loginError}
+                <button type="button" class="btn-close" onclick="this.parentElement.style.display = 'none'" aria-label="Close"></button>
+            </div>
+        </c:if>
+
+        <c:if test="${not empty requestScope.loginOut}">
+            <div class="alert alert-secondary error-message" role="alert" style="display: block; position: fixed; top: 10px; right: 10px; z-index: 9999;">
+                <strong>Logout:</strong> ${requestScope.loginOut}
+                <button type="button" class="btn-close" onclick="this.parentElement.style.display = 'none'" aria-label="Close"></button>
+            </div>
+        </c:if>
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Call the function to hide the success message after 3 seconds
+                setTimeout(hideErrorMessage, 2000);
+            });
+
+            // Function to hide the success message after 3 seconds
+            function hideErrorMessage() {
+                $('.alert-danger').fadeOut('slow', function () {
+                    $(this).remove();
+                });
+            }
+            $(document).ready(function () {
+                // Call the function to hide the success message after 3 seconds
+                setTimeout(hideLogOutMessage, 2000);
+            });
+
+            // Function to hide the success message after 3 seconds
+            function hideLogOutMessage() {
+                $('.alert-secondary').fadeOut('slow', function () {
+                    $(this).remove();
+                });
+            }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
+
     </body>
 </html>

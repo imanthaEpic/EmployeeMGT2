@@ -8,6 +8,7 @@ utill\DBConnection.class
 bean\DashboardBean.class
 servlets\EmployeeRegisterServlet.class
 repository\EmployeeRepo.class
+servlets\EmployeeDetailsServlet.class
 bean\Employee.class
 repository\DashboardRepo.class
 servlets\EmployeeDataServlet.class

@@ -160,7 +160,7 @@
                                                             <option value="TL">TL</option>
                                                         </select>
                                                     </div>
-                                                    <div class="invalid-feedback invalid-designation" style="display: none;">Designation is required.</div>
+                                                    <div class="invalid-feedback invalid-designation mt-1" style="display: none;">Designation is required.</div>
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="status" class="form-label">Status: </label>
@@ -171,7 +171,7 @@
                                                             <option value="Inactive">Inactive</option>
                                                         </select>
                                                     </div>
-                                                    <div class="invalid-feedback invalid-status" style="display: none;">Status is required.</div>
+                                                    <div class="invalid-feedback invalid-status mt-1" style="display: none;">Status is required.</div>
                                                 </div>
                                             </div>
 

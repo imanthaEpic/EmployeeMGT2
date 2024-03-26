@@ -41,7 +41,7 @@ public class EmployeeDataServlet extends HttpServlet {
                         + "address, nic, mobile_no, designation, status FROM employees";
                 ps = con.prepareStatement(query);
                 rs = ps.executeQuery();
-                
+
                 while (rs.next()) {
                     out.println("<tr>");
                     out.println("<td>" + rs.getInt("employee_code") + "</td>");
@@ -51,7 +51,7 @@ public class EmployeeDataServlet extends HttpServlet {
                     out.println("<td>" + rs.getString("mobile_no") + "</td>");
                     out.println("<td>" + rs.getString("designation") + "</td>");
                     out.println("<td>" + rs.getString("status") + "</td>");
-                    out.println("<td><button class=\"btn btn-warning\" onclick='editEmployee(" + rs.getInt("employee_code") + ")'>View</button></td>");
+                    out.println("<td><a class=\"btn btn-warning\" href=\"EmployeeDetailsServlet?employee_code=" + rs.getInt("employee_code") + "\">View</a></td>");
                     out.println("</tr>");
                 }
             } catch (SQLException ex) {

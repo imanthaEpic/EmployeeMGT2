@@ -4,6 +4,7 @@
  */
 package servlets;
 
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -35,13 +36,28 @@ public class EmployeeLogoutServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EmployeeLogoutServlet</title>");            
+            out.println("<title>Servlet EmployeeLogoutServlet</title>");
             out.println("</head>");
-            
-            HttpSession session = request.getSession();
-            session.removeAttribute("loguser");
-            response.sendRedirect("login.jsp");
-            
+
+//            HttpSession session = request.getSession();
+//            session.removeAttribute("loguser");
+//
+//            request.setAttribute("loginOut", "You have logged out from your Account!");
+//            response.sendRedirect("login.jsp");
+
+            // Invalidate the session
+            HttpSession session = request.getSession(false);
+            if (session != null) {
+                session.invalidate();
+            }
+
+            // Set the logout message attribute in the request
+            request.setAttribute("loginOut", "You have logged out from your Account!");
+
+            // Forward to the login page
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            dispatcher.forward(request, response);
+
             out.println("<body>");
             out.println("<h1>Servlet EmployeeLogoutServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");

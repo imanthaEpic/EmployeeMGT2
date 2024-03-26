@@ -164,9 +164,14 @@
                                 fetchData();
                             };
 
+                            // Function to redirect to the employee details page
+                            function viewEmployeeDetails(employeeCode) {
+                                window.location.href = "EmployeeDetailsServlet?employeeCode=" + employeeCode;
+                            }
+
                             // Example function for editing employee data (you can customize this)
                             function editEmployee(employeeCode) {
-                                alert("Editing employee with code: " + employeeCode);
+                                alert("View employee with code: " + employeeCode);
                                 // Add your logic to edit employee here
                             }
 

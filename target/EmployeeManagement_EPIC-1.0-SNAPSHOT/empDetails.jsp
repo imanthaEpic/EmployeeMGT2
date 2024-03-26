@@ -5,10 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="utill.DBConnection" %>
+<%@ page import="java.util.Base64" %>
+<%@ page import="bean.Employee"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,54 +21,211 @@
         <!-- MDB -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css" rel="stylesheet" />
         <title>Active Employees Counts</title>
+        <style>
+            button.button-10 {
+                touch-action: manipulation;
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+                outline: none;
+                border: 0;
+                vertical-align: middle;
+                text-decoration: none;
+                font-size: inherit;
+                font-family: inherit;
+            }
+            button.button-10 {
+                touch-action: manipulation;
+                font-weight: 600;
+                color: #382b22;
+                text-transform: uppercase;
+                padding: 1.25em 2em;
+                background: #f0f0ff; /* Changed background color to blue */
+                border: 2px solid #8597b1; /* Changed border color to blue */
+                border-radius: 0.75em;
+                transform-style: preserve-3d;
+                transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+                    background 150ms cubic-bezier(0, 0, 0.58, 1);
+            }
+            button.button-10::before {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #d2d9f9; /* Changed background color to blue */
+                border-radius: inherit;
+                box-shadow: 0 0 0 2px #8597b1, 0 0.625em 0 0 #e2e3ff; /* Changed shadow color to blue */
+                transform: translate3d(0, 0.75em, -1em);
+                transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+                    box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+            }
+            button.button-10:hover {
+                background: #e9e9ff; /* Changed background color on hover to lighter blue */
+                transform: translate(0, 0.25em);
+            }
+            button.button-10:hover::before {
+                box-shadow: 0 0 0 2px #8597b1, 0 0.5em 0 0 #e2e3ff; /* Changed shadow color on hover to blue */
+                transform: translate3d(0, 0.5em, -1em);
+            }
+            button.button-10:active {
+                background: #e9e9ff; /* Changed background color on active to lighter blue */
+                transform: translate(0em, 0.75em);
+            }
+            button.button-10:active::before {
+                box-shadow: 0 0 0 2px #8597b1, 0 0 #e2e3ff; /* Changed shadow color on active to blue */
+                transform: translate3d(0, 0, -1em);
+            }
+        </style>
     </head>
     <body>
         <%@ include file="navbar.jsp" %> <!-- Including navbar.jsp -->
-        <%
-            Connection conn = null;
-            PreparedStatement stmt = null;
-            ResultSet rs = null;
-            int totalEmployeesCount = 0;
-            int activeEmployeesCount = 0;
-            int inactiveEmployeesCount = 0;
+        <section class="" style="background-color: #eee;">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
 
-            try {
-                conn = DBConnection.getConnection();
 
-                // Query to get total employees count
-                String totalQuery = "SELECT COUNT(*) AS total_count FROM employees";
-                stmt = conn.prepareStatement(totalQuery);
-                rs = stmt.executeQuery();
-                if (rs.next()) {
-                    totalEmployeesCount = rs.getInt("total_count");
-                }
+                                <div class="card-body text-center">
+                                    <img src="data:image/jpeg;base64,${Base64.getEncoder().encodeToString(employee.profileImage)}" class="rounded-circle img-fluid" style="width: 150px;" alt="pic">
+                                </div>
 
-                // Query to get active employees count
-                String activeQuery = "SELECT COUNT(*) AS active_count FROM employees WHERE status = 'Active'";
-                stmt = conn.prepareStatement(activeQuery);
-                rs = stmt.executeQuery();
-                if (rs.next()) {
-                    activeEmployeesCount = rs.getInt("active_count");
-                }
 
-                // Query to get inactive employees count
-                String inactiveQuery = "SELECT COUNT(*) AS inactive_count FROM employees WHERE status = 'Inactive'";
-                stmt = conn.prepareStatement(inactiveQuery);
-                rs = stmt.executeQuery();
-                if (rs.next()) {
-                    inactiveEmployeesCount = rs.getInt("inactive_count");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                DBConnection.closeConnection(conn);
-            }
-        %>
-
-        <div class="mt-4">
-            <h2>Total Employees Count: <%= totalEmployeesCount %></h2>
-            <h2>Active Employees Count: <%= activeEmployeesCount %></h2>
-            <h2>Inactive Employees Count: <%= inactiveEmployeesCount %></h2>
-        </div>
+                                <h5 class="my-3">${employee.firstName}</h5>
+                                <p class="text-muted mb-1">${employee.designation}</p>
+                                <p class="text-muted mb-4">${employee.address}</p>
+                                <div class="d-flex justify-content-center mb-2">
+                                    <a href="tel:${employee.mobileNo}"><button type="button" class="btn btn-success">Call</button></a>
+                                    <a href="mailto:${employee.email}"><button type="button" class="btn btn-primary ms-1">Email</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4 mb-lg-0">
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush rounded-3">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fas fa-globe fa-lg text-warning"></i>
+                                        <p class="mb-0">https://mdbootstrap.com</p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                                        <p class="mb-0">mdbootstrap</p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                                        <p class="mb-0">@mdbootstrap</p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                                        <p class="mb-0">mdbootstrap</p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                        <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                                        <p class="mb-0">mdbootstrap</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Full Name</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.firstName} ${employee.lastName}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Email</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.email}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Phone</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.mobileNo}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">NIC</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.nic}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Address</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.address}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Designation</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.designation}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Gender</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.gender}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Date of Birth</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.dob}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Status</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">${employee.status}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="button-10" role="button">
+                                <span class="text">Get a Report
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

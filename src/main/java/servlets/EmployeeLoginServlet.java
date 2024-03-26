@@ -5,6 +5,7 @@
 package servlets;
 
 import bean.Employee;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -39,23 +40,31 @@ public class EmployeeLoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
+            out.println("<title>Servlet LoginServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            
+
             String lEmail = request.getParameter("email");
             String lPass = request.getParameter("password");
-            
+
             EmployeeRepo db = new EmployeeRepo(DBConnection.getConnection());
             Employee user = db.logEmployee(lEmail, lPass);
-            if(user!=null){
+            if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("loguser", user);
+                request.setAttribute("loginSuccess", "Login Successful!");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
+                dispatcher.forward(request, response);
                 response.sendRedirect("dashboard.jsp");
             } else {
-                out.print("Employee not found!");
+                System.out.println("Incorrect Email or Password");
+                // Set an attribute to indicate login failure
+                request.setAttribute("loginError", "Incorrect Password or Email!  ");
+                // Forward to the login page
+                RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+                dispatcher.forward(request, response);
             }
-            
+
             out.println("</body>");
             out.println("</html>");
         }
@@ -109,4 +118,3 @@ public class EmployeeLoginServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-

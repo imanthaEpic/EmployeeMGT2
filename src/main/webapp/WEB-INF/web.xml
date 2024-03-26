@@ -31,6 +31,15 @@
     <servlet>
         <servlet-name>EmployeeDataServlet</servlet-name>
         <servlet-class>servlets.EmployeeDataServlet</servlet-class>
+        <multipart-config>
+            <max-file-size>1048576</max-file-size>
+            <max-request-size>2097152</max-request-size>
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>EmployeeDetailsServlet</servlet-name>
+        <servlet-class>servlets.EmployeeDetailsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EmployeLoginServlet</servlet-name>
@@ -63,6 +72,10 @@
     <servlet-mapping>
         <servlet-name>EmployeeDataServlet</servlet-name>
         <url-pattern>/EmployeeDataServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeDetailsServlet</servlet-name>
+        <url-pattern>/EmployeeDetailsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
