@@ -23,11 +23,14 @@
                 background: red;
                 padding: 2px;
             }
+            body {
+                padding-top: 56px; /* Adjust this value according to your navbar height */
+            }
         </style>
     </head>
     <body>
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 <!-- Toggle button -->
@@ -65,9 +68,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="myprofile.jsp">My Profile</a>
                         </li>
-<!--                        <li class="nav-item">
-                            <a class="nav-link" href="empDetails.jsp">Employee Deatils</a>
-                        </li>-->
+                        <!--                        <li class="nav-item">
+                                                    <a class="nav-link" href="empDetails.jsp">Employee Deatils</a>
+                                                </li>-->
                     </ul>
                     <!-- Left links -->
                 </div>

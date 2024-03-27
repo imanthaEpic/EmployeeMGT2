@@ -52,7 +52,7 @@ public class EmployeeLoginServlet extends HttpServlet {
             if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("loguser", user);
-                request.setAttribute("loginSuccess", "Login Successful!");
+                request.setAttribute("loginSuccess", "Good to see you again! Let's dive in.");
                 RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
                 dispatcher.forward(request, response);
                 response.sendRedirect("dashboard.jsp");

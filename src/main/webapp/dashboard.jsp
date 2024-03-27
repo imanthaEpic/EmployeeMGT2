@@ -14,6 +14,14 @@
     <head>
         <meta charset="UTF-8">
         <title>Active Employees Counts</title>
+        <style>
+            .carousel-caption {
+                background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+                color: white; /* White text color */
+                padding: 20px; /* Add padding to the caption */
+            }
+
+        </style>
     </head>
     <body>
         <%@ include file="navbar.jsp" %> <!-- Including navbar.jsp -->
@@ -27,7 +35,7 @@
         <!-- Success message -->
         <c:if test="${not empty requestScope.loginSuccess}">
             <div id="successMessage" class="alert alert-success error-message" role="alert" style="display: block; position: fixed; top: 10px; right: 10px; z-index: 9999;">
-                <strong>Success:</strong> ${requestScope.loginSuccess}
+                <strong>Login Success:</strong> ${requestScope.loginSuccess}
                 <button type="button" class="btn-close" onclick="hideSuccessMessage()" aria-label="Close"></button>
             </div>
         </c:if>
@@ -69,6 +77,64 @@
             </div>
         </div>
 
+        <div class="container mt-5 mb-4">
+            <div id="carouselExampleCaptions" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init>
+                <div class="carousel-indicators">
+                    <button
+                        type="button"
+                        data-mdb-target="#carouselExampleCaptions"
+                        data-mdb-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1"
+                        ></button>
+                    <button
+                        type="button"
+                        data-mdb-target="#carouselExampleCaptions"
+                        data-mdb-slide-to="1"
+                        aria-label="Slide 2"
+                        ></button>
+                    <button
+                        type="button"
+                        data-mdb-target="#carouselExampleCaptions"
+                        data-mdb-slide-to="2"
+                        aria-label="Slide 3"
+                        ></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://www.epictechnology.lk/wp-content/uploads/2019/03/fintech-mobile-software-company-epic-lanka-about-us-image.jpg" class="d-block w-100" alt="Wild Landscape"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>OUR VISION</h5>
+                            <p>Delightful life for everyone through affordable, state-of-the-art, and high-quality technological innovations.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.epictechnology.lk/wp-content/uploads/2019/03/fintech-mobile-software-company-epic-lanka-our-corporate-management-image.jpg" class="d-block w-100" alt="Camera"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>OUR PASSION</h5>
+                            <p>We are passionate about continuing our efforts in reducing the digital divide with cutting-edge solutions. </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.epictechnology.lk/wp-content/uploads/2019/04/Annual-Trip-to-RIU-Ahungalla-2018-3.jpg" class="d-block w-100" alt="Exotic Fruits"/>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>OUR MISSION</h5>
+                            <p>To create a sought-after and best-in-class workplace synonymous with sharing and caring for our employees – our most valuable assets.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
                     $(document).ready(function () {
@@ -100,5 +166,10 @@
                         });
                     }
         </script>
+        <!-- MDB -->
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"
+        ></script>
     </body>
 </html>

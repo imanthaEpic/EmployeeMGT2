@@ -85,9 +85,30 @@
                         <div class="card card-registration my-4">
                             <div class="row g-0">
                                 <div class="col-xl-6 d-none d-xl-block">
-                                    <img src="https://images.pexels.com/photos/7283562/pexels-photo-7283562.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWpraW1pMG1vYTI2djNsbXBmZnhpOTd3Ym4xbGlweGFqYzBxZXBzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kYNVwkyB3jkauFJrZA/giphy.gif"
                                          alt="Sample photo" class="img-fluid"
                                          style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWpraW1pMG1vYTI2djNsbXBmZnhpOTd3Ym4xbGlweGFqYzBxZXBzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kYNVwkyB3jkauFJrZA/giphy.gif"
+                                         alt="Sample photo" class="img-fluid"
+                                         style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+<!--                                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Uxb3dndDVjdm5zY2EwMDF6bWc5aWF6dnd1c2Q3dHFxY2RtOTNjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ikgt61boNyGr3iVZpn/giphy.gif"
+                                         alt="Sample photo" class="img-fluid"
+                                         style="border-top-left-radius: .25rem; " />
+                                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2Uxb3dndDVjdm5zY2EwMDF6bWc5aWF6dnd1c2Q3dHFxY2RtOTNjaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ikgt61boNyGr3iVZpn/giphy.gif"
+                                         alt="Sample photo" class="img-fluid"
+                                         style=" border-bottom-left-radius: .25rem;" />-->
+<!--                                    <img src="https://media0.giphy.com/media/Ltz1ZA728qKw4mEY94/giphy.gif?cid=6c09b952x0gg64zxkoqsnga8x80smbi33ak8mk4whgznaxuv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                                         alt="Sample photo" class="img-fluid"
+                                         style="border-top-left-radius: .25rem; " />
+                                    <img src="https://media0.giphy.com/media/Ltz1ZA728qKw4mEY94/giphy.gif?cid=6c09b952x0gg64zxkoqsnga8x80smbi33ak8mk4whgznaxuv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                                         alt="Sample photo" class="img-fluid"
+                                         style=" border-bottom-left-radius: .25rem;" />
+                                    <img src="https://media0.giphy.com/media/Ltz1ZA728qKw4mEY94/giphy.gif?cid=6c09b952x0gg64zxkoqsnga8x80smbi33ak8mk4whgznaxuv&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"
+                                         alt="Sample photo" class="img-fluid"
+                                         style=" border-bottom-left-radius: .25rem;" />-->
+<!--                                    <img src="https://images.pexels.com/photos/7283562/pexels-photo-7283562.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                         alt="Sample photo" class="img-fluid"
+                                         style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />-->
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="card-body p-md-5 text-black">

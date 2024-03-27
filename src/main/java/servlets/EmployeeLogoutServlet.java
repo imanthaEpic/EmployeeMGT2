@@ -52,7 +52,7 @@ public class EmployeeLogoutServlet extends HttpServlet {
             }
 
             // Set the logout message attribute in the request
-            request.setAttribute("loginOut", "You have logged out from your Account!");
+            request.setAttribute("loginOut", "Until next time! Your contributions are appreciated.");
 
             // Forward to the login page
             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");

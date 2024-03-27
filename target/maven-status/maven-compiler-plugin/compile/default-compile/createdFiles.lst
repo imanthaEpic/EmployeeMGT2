@@ -12,5 +12,6 @@ servlets\EmployeeDetailsServlet.class
 bean\Employee.class
 repository\DashboardRepo.class
 servlets\EmployeeDataServlet.class
+servlets\ReportServlet.class
 service\EmployeeService.class
 com\mycompany\employeemanagement_epic\resources\JakartaEE10Resource.class

@@ -218,14 +218,41 @@
                             </div>
                         </div>
                         <div>
-                            <button class="button-10" role="button">
-                                <span class="text">Get a Report
-                                </span>
+                            <button id="reportButton" class="button-10" role="button">
+                                <span class="text">Get a Report</span>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            document.getElementById("reportButton").addEventListener("click", function () {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "ReportServlet", true);
+                xhr.responseType = "blob"; // Set response type to blob
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        // Create a URL object from the blob response
+                        var url = window.URL.createObjectURL(xhr.response);
+                        // Create a link element
+                        var a = document.createElement("a");
+                        // Set the href attribute to the URL object
+                        a.href = url;
+                        // Set the download attribute to specify the filename
+                        a.download = "employee_report.pdf"; // Set filename for PDF report
+                        // Append the link element to the document body
+                        document.body.appendChild(a);
+                        // Click the link to trigger the download
+                        a.click();
+                        // Remove the link element from the document body
+                        document.body.removeChild(a);
+                    }
+                };
+                xhr.send();
+            });
+        </script>
+
     </body>
 </html>

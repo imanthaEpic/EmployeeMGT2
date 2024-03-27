@@ -41,6 +41,10 @@
         <servlet-name>EmployeeDetailsServlet</servlet-name>
         <servlet-class>servlets.EmployeeDetailsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>servlets.ReportServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EmployeLoginServlet</servlet-name>
         <url-pattern>/EmployeLoginServlet</url-pattern>
@@ -76,6 +80,10 @@
     <servlet-mapping>
         <servlet-name>EmployeeDetailsServlet</servlet-name>
         <url-pattern>/EmployeeDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/ReportServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
